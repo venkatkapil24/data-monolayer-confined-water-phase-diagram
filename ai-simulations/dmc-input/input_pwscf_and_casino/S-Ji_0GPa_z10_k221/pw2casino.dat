@@ -1,0 +1,6 @@
+&inputpp 
+ blip_convert=.t.
+ blip_binary=.t.
+ blip_single_prec=.t.
+ blip_multiplicity=1.0
+/

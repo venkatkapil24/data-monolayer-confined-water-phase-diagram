@@ -1,0 +1,32 @@
+zen@zen-alfe:/BIGDATA/ZEN/2D-ICE/e202/2d-ice/MOL_WAT
+
+QE_600Ry_open10/DMC_0.02_ZAbranch/
+ ENERGY COMPONENTS WITH REBLOCKED ERROR BARS
+ ===========================================
+                                  Mean (eV)              Err (eV)
+                 Total energy :  -4.68368315702315E+02   1.22995341034823E-03
+       Total potential energy :  -8.33790460199845E+02   2.62449433683636E-02
+           Kinetic energy (K) :   3.65422144497522E+02   2.60225449686563E-02
+           Kinetic energy (T) :   3.63875563530222E+02   1.34289052864072E-01
+        Kinetic energy (FISQ) :   3.62328982562923E+02   2.66965278011314E-01
+          Coulomb interaction :   4.58443378389004E+02   1.71633641597041E-02
+             Local e-i energy :  -1.44152128784826E+03   3.41080430474347E-02
+          Nonlocal e-i energy :  -3.77799186822714E+01   1.22904834059028E-02
+              Constant energy :   1.87067367941691E+02
+
+
+
+QE_600Ry_open15/DMC_0.02_ZAbranch/
+ ENERGY COMPONENTS WITH REBLOCKED ERROR BARS
+ ===========================================
+                                  Mean (eV)              Err (eV)
+                 Total energy :  -4.68366702238636E+02   1.28991774599235E-03
+       Total potential energy :  -8.33821907487696E+02   2.67067004000225E-02
+           Kinetic energy (K) :   3.65455205249060E+02   2.64228414924964E-02
+           Kinetic energy (T) :   3.63631801713954E+02   7.01436069506819E-02
+        Kinetic energy (FISQ) :   3.61808398178842E+02   1.36128774205138E-01
+          Coulomb interaction :   4.58460634325816E+02   1.76501691617383E-02
+             Local e-i energy :  -1.44157660105742E+03   3.50651375297213E-02
+          Nonlocal e-i energy :  -3.77733086977869E+01   1.27872509879540E-02
+              Constant energy :   1.87067367941691E+02
+

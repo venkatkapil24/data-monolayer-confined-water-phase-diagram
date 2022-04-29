@@ -1,0 +1,11 @@
+
+a=-400
+b=-100
+f(x) = a + b*x
+fit f(x) 'data_2GPa.txt' u (1./$4):2:3 via a, b
+
+set xlabel '1/Nwat'
+set ylabel 'Eb [meV/Nwat]'
+p [0:0.1]'data_2GPa.txt' u (1./$4):2:3 w ye, f(x)
+pause -1
+

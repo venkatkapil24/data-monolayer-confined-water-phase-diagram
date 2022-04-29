@@ -1,0 +1,85 @@
+#-------------------#
+# CASINO input file #
+#-------------------#
+
+# RUNQMC-generated input file
+
+# KEYWORDS - ALPHABETICAL
+
+neu                    : 64                  
+ned                    : 64                  
+usejastrow             : T                   
+atombasistype          : blip                
+periodic               : T                   
+blipperiodicity        : 2                   
+timinginfo             : F                   
+singleprecisionblips   : T                   
+convbinaryblips        : F                   
+vmcnstep               : 3072                
+vmcnconfigwrite        : 3072                
+vmcnblock              : 2                   
+vmcequilnstep          : 1000                
+vmcdecorrperiod        : 10                  
+vmcaveperiod           : 1                   
+checkpoint             : 1                   
+dtvmc                  : 0.34                
+optdtvmc               : 0                   
+vmcmethod              : 1                   
+finitesizecorr         : F                   
+dmctargetweight        : 3072.00             
+dmctripweight          : 60000.00            
+dmcequilnstep          : 1000                
+dmcequilnblock         : 10                  
+dmcdecorrperiod        : 1                   
+dmcaveperiod           : 1                   
+dmcpoprenorm           : F                   
+usetmove               : F                   
+dtdmc                  : 0.005               
+cerefdmc               : 1.0                 
+limdmc                 : 4                   
+alimit                 : 0.5                 
+tpdmc                  : 0                   
+growthestimator        : F                   
+ibran                  : T                   
+lwdmc                  : F                   
+wdmcmin                : 0.5                 
+wdmcmax                : 2.0                 
+smalltransfer          : F                   
+optmethod              : varmin              
+optmaxeval             : 100                 
+optmaxiter             : 10                  
+optcycles              : 5                   
+interaction            : ewald               
+testrun                : F                   
+gautol                 : 6.0                 
+neighprint             : 0                   
+conloc                 : ./                  
+orbbuf                 : T                   
+jasbuf                 : T                   
+checkwfn               : F                   
+lcutofftol             : 1.d-4               
+nlcutofftol            : 1.d-6               
+printgscreening        : F                   
+orbnorm                : 1.0                 
+ranluxlevel            : 3                   
+ewaldcontrol           : 0.0                 
+cuspcorrection         : T                   
+kwarn                  : F                   
+ranprint               : 0                   
+sparse                 : F                   
+sparsethreshold        : 1.d-12              
+makemovie              : F                   
+movieplot              : 1                   
+movienode              : 0                   
+moviecells             : F                   
+maxcputime             : 116640 s            
+runtype                : dmc_stats           
+newrun                 : F                   
+dmcstatsnblock         : 63                  
+dmcstatsnstep          : 63000               
+
+# BLOCKS - ALPHABETICAL
+
+%block npcell
+2 2 1
+%endblock npcell

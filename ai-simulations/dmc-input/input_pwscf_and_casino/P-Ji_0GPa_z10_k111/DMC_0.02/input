@@ -1,0 +1,96 @@
+#-------------------#
+# CASINO input file #
+#-------------------#
+
+# Fe (blip basis)
+
+# BASIC INFORMATION
+neu               :  48                           #*! # of up electrons (Integ 
+ned               :  48                           #*! # of down electrons (Int 
+runtype           : vmc_dmc              #*! Calc type (VMC/DMC etc.) (Integer)
+newrun            : T
+use_jastrow       : T
+atom_basis_type   : blip
+periodic          : T
+blip_periodicity  : 2
+timing_info       : F
+single_precision_blips : T
+conv_binary_blips : F
+
+# BLOCK INPUT
+%block npcell
+1 1 1
+%endblock npcell
+
+maxcputime             : 86000 s             
+
+# VMC
+   VMC_NSTEP                              :   3072
+   VMC_NCONFIG_WRITE                      :   3072
+   VMC_NBLOCK                             :  2
+   VMC_EQUIL_NSTEP                        :  1000
+   VMC_DECORR_PERIOD                      :  10
+   VMC_AVE_PERIOD                         :  1
+checkpoint        : 1
+dtvmc             : 0.34                            #*! VMC time step (Double Pr 
+OPT_DTVMC         : 0
+vmc_method        : 1                              #*! Which VMC method (Intege
+finite_size_corr  : F
+
+# DMC
+   DMC_TARGET_WEIGHT                      :   3072.00
+   DMC_TRIP_WEIGHT                        :  60000.00
+   DMC_EQUIL_NSTEP                        :  1000
+   DMC_EQUIL_NBLOCK                       :    10
+   DMC_STATS_NSTEP                        :  40000
+   DMC_STATS_NBLOCK                       :    400
+   DMC_DECORR_PERIOD                      :  1
+   DMC_AVE_PERIOD                         :  1
+dmc_poprenorm     : F
+use_tmove         : F
+dtdmc             : 0.02                           #*! DMC time step (Double Pr 
+cerefdmc          : 1.0                            #*! DMC EREF update (Double  
+limdmc            : 4                              #*! Green fn. mods (Integer) 
+alimit            : 0.5                            #*! DMC limit param (Double 
+tpdmc             : 0                              #*! DMC number of timesteps
+growth_estimator  : F                              #*! DMC growth estimator (Bo
+ibran             : T                              #*! DMC branching (Boolean)  
+lwdmc             : F                              #*! Enable weighted DMC (Boo 
+wdmcmin           : 0.5                            #*! Minimum weight (Double P 
+wdmcmax           : 2.0                            #*! Maximum weight (Double P 
+small_transfer    : F
+
+# VARIANCE MINIMIZATION
+opt_method        : varmin
+optmaxeval        : 100                           #*! Varmin max # evals (Inte
+OPT_MAXITER       : 10
+opt_cycles        : 5
+
+# GENERAL PARAMETERS
+interaction       : ewald                          #*! ee interaction type (Int 
+testrun           : F                              #*! Test run flag (Boolean)  
+gautol            : 6.0                            #*! Gaussian tolerance (Doub 
+neighprint        : 0                              #*! Neighbour analysis (Inte
+conloc            : ./                             #*! Configs directory (Strin 
+
+# GENERAL PARAMETERS - RARELY MODIFIED
+orbbuf            : T                              #*! Orbital buffering (Boole
+jasbuf            : T                              #*! Jastrow buffering (Boole
+checkwfn          : F                              #*! Wavefunction deriv check
+lcutofftol        : 1.d-4                          #*! Loc pp cutoff tol (Doubl 
+nlcutofftol       : 1.d-6                          #*! Loc pp cutoff tol (Doubl 
+printgscreening   : F                              #*! Gauss screening info (Bo
+orb_norm          : 1.0                            #*! Orbital normalization (D
+ranluxlevel       : 3                              #*! Random number quality (I
+ewald_control     : 0.0                            #*! Ewald accuracy boost (Do
+cusp_correction   : T                              #*! Cusp-corrector for all-e
+kwarn             : F                              #*! Disable KE check in PW (
+ranprint          : 0                              #*! Log random numbers (Inte
+sparse            : F                              #*! Use sparse algorithms (B
+sparse_threshold  : 1.d-12                         #*! Zero threshold mxmb (Dou
+
+# MOVIES
+makemovie         : F                              #*! Make movie (Boolean)
+movieplot         : 1                              #*! Plot every * moves (Inte
+movienode         : 0                              #*! Node to plot (Integer)
+moviecells        : F                              #*! Plot nn cells (Boolean)
