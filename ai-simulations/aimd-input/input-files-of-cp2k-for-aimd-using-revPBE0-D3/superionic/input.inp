@@ -1,0 +1,127 @@
+&GLOBAL
+  PROJECT_NAME  hoc
+  RUN_TYPE      MD
+  PRINT_LEVEL   LOW
+&END GLOBAL
+
+&EXT_RESTART
+  RESTART_FILE_NAME hoc-0.restart 
+&END EXT_RESTART
+
+&MOTION
+  &MD
+    &THERMOSTAT
+      TYPE  NOSE
+      &NOSE
+        LENGTH 4
+        TIMECON 40
+      &END NOSE
+    &END THERMOSTAT
+    ENSEMBLE  NVT
+    STEPS  10000
+    TEMPERATURE  600
+    TIMESTEP   1
+  &END MD
+  &PRINT
+    &VELOCITIES LOW
+    &END VELOCITIES
+    &FORCES LOW
+    &END FORCES
+  &END PRINT
+  &CONSTRAINT
+    &FIXED_ATOMS
+      LIST 1..8
+      COMPONENTS_TO_FIX  Z
+    &END FIXED_ATOMS
+  &END CONSTRAINT
+&END MOTION
+
+&FORCE_EVAL
+  METHOD QUICKSTEP
+  &DFT
+    BASIS_SET_FILE_NAME  /home/chenji/jichen/cp2k-files/cp2k-8.1/data/GTH_BASIS_SETS
+    BASIS_SET_FILE_NAME  /home/chenji/jichen/cp2k-files/cp2k-8.1/data/BASIS_MOLOPT
+    BASIS_SET_FILE_NAME  /home/chenji/jichen/cp2k-files/cp2k-8.1/data/BASIS_ADMM
+    POTENTIAL_FILE_NAME  /home/chenji/jichen/cp2k-files/cp2k-8.1/data/POTENTIAL
+    WFN_RESTART_FILE_NAME revPBE-RESTART.wfn
+    &SCF
+      SCF_GUESS RESTART
+      &OT 
+        MINIMIZER  DIIS
+        PRECONDITIONER  FULL_KINETIC
+      &END OT
+    &END SCF 
+    &MGRID
+      CUTOFF  400
+    &END MGRID
+    &XC # revPBE0-D3
+      &XC_FUNCTIONAL
+        &PBE
+          PARAMETRIZATION REVPBE
+          SCALE_X 0.75
+          SCALE_C 1.0
+        &END
+      &END XC_FUNCTIONAL
+      &XC_GRID
+        XC_DERIV SPLINE2
+      &END XC_GRID
+      &HF
+        FRACTION 0.25
+        &SCREENING
+          EPS_SCHWARZ 1.0E-6
+          SCREEN_ON_INITIAL_P TRUE
+        &END SCREENING
+        &MEMORY
+          MAX_MEMORY 3700
+          EPS_STORAGE_SCALING 0.1
+        &END MEMORY
+        &INTERACTION_POTENTIAL
+          POTENTIAL_TYPE TRUNCATED
+          CUTOFF_RADIUS 4.0
+          T_C_G_DATA ./t_c_g.dat
+        &END
+        &HF_INFO
+        &END HF_INFO
+      &END
+      &VDW_POTENTIAL
+        POTENTIAL_TYPE PAIR_POTENTIAL
+        &PAIR_POTENTIAL
+          TYPE DFTD3
+          R_CUTOFF 15
+          LONG_RANGE_CORRECTION TRUE
+          REFERENCE_FUNCTIONAL revPBE0
+          PARAMETER_FILE_NAME /home/chenji/jichen/cp2k-files/cp2k-8.1/data/dftd3.dat
+        &END PAIR_POTENTIAL
+      &END VDW_POTENTIAL
+    &END XC
+    &AUXILIARY_DENSITY_MATRIX_METHOD
+      METHOD BASIS_PROJECTION
+      ADMM_PURIFICATION_METHOD MO_DIAG
+    &END AUXILIARY_DENSITY_MATRIX_METHOD
+  &END DFT
+  &SUBSYS
+    &CELL
+      ABC 9.84  8.52144  20
+    &END CELL
+    &COORD
+@INCLUDE 'geo-start.xyz'
+    &END COORD
+    &KIND C
+      BASIS_SET DZVP-MOLOPT-SR-GTH-q4 
+      BASIS_SET AUX_FIT cFIT3
+      POTENTIAL  GTH-PBE-q4
+    &END KIND
+    &KIND O
+      BASIS_SET  TZV2P-GTH-q6
+      BASIS_SET AUX_FIT cFIT3
+      POTENTIAL  GTH-PBE-q6
+    &END KIND
+    &KIND H
+      BASIS_SET  TZV2P-GTH-q1
+      BASIS_SET AUX_FIT cFIT3
+      POTENTIAL  GTH-PBE-q1
+      MASS 2
+    &END KIND
+  &END SUBSYS
+&END FORCE_EVAL
+
