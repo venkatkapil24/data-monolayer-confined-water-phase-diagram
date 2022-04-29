@@ -1,0 +1,21 @@
+set terminal postscript eps enhanced color font "Helvetica" 18 size 2.5, 2.5  dashed
+set output "plot_Eb.eps"
+
+set encoding iso_8859_1
+
+set style line  1 lt  1 lc rgb "blue"  lw 1  pt 10 ps 1.0
+set style line  2 lt  1 lc rgb "red"   lw 1  pt  8 ps 1.0
+set style line  3 lt  1 lc rgb "green" lw 1  pt  6 ps 1.0
+set style line 11 lt  1 lc rgb "blue"  lw 3  pt 10 ps 1.0 dashtype 2
+set style line 12 lt  1 lc rgb "red"   lw 3  pt  8 ps 1.0 dashtype 2
+set style line 13 lt  1 lc rgb "green" lw 3  pt  6 ps 1.0 dashtype 2
+set style line 10 lt  1 lc rgb "gray"  lw 3  pt  6 ps 1.0
+
+set key bottom left
+
+pause -1
+set title "Buckled-rhombic\nP=0 GPa - 3x2 supercell"
+set xlabel 'timestep [a.u.]'
+set ylabel 'E_b [meV/Nwat]'
+p [0:0.05]"ene_0GPa_z10_k321.txt" u 1:2:3 w ye ls 1 ti "FN-DMC/LA"
+

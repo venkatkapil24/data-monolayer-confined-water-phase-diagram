@@ -1,0 +1,32 @@
+set terminal postscript eps enhanced color font "Helvetica" 18 size 2.5, 2.5  dashed
+set output "plot_FS.eps"
+
+set encoding iso_8859_1
+
+set style line  1 lt  1 lc rgb "blue"  lw 1  pt 10 ps 1.0
+set style line  2 lt  1 lc rgb "red"   lw 1  pt  8 ps 1.0
+set style line  3 lt  1 lc rgb "green" lw 1  pt  6 ps 1.0
+set style line 11 lt  1 lc rgb "blue"  lw 3  pt 10 ps 1.0 dashtype 2
+set style line 12 lt  1 lc rgb "red"   lw 3  pt  8 ps 1.0 dashtype 2
+set style line 13 lt  1 lc rgb "green" lw 3  pt  6 ps 1.0 dashtype 2
+set style line 10 lt  1 lc rgb "gray"  lw 3  pt  6 ps 1.0
+
+set key bottom left
+
+a=-400
+b=-100
+f(x) = a + b*x
+fit f(x) 'data_0GPa.txt' u (1./$4):2:3 via a, b
+
+c=-400
+d=-100
+g(x) = c + d*x
+fit g(x) 'data_2GPa.txt' u (1./$4):2:3 via c, d
+
+set title "Finite size correction"
+set xlabel '1/Nwat'
+set ylabel 'E_b [meV/Nwat]'
+p [0:0.1]'data_0GPa.txt' u (1./$4):2:3 w ye ls 1 ti "P=0GPa", f(x) noti ls 11,\
+         'data_2GPa.txt' u (1./$4):2:3 w ye ls 2 ti "P=2GPa", g(x) noti ls 12
+
+
