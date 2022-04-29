@@ -1,0 +1,2 @@
+The input files are for geometry optimizations with DFT in confining potential, using a modified version of VASP.5.4.1. 
+Please contact Ji Chen (ji.chen@pku.edu.cn) to request the modified files of the code.  
