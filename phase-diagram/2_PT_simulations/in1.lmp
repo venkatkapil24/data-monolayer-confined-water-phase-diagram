@@ -1,0 +1,25 @@
+###############################################################################
+# MD simulation for B3LYP H2O with NN potential
+###############################################################################
+
+###############################################################################
+# VARIABLES
+###############################################################################
+clear
+variable runnerCutoff    equal  8.466835984                                                                       # largest symmetry function cutoff (Angstrom)
+variable runnerDir       string "/INSET PATH TO NNP DIRECTORY/"           # directory containing RuNNer files
+###############################################################################
+# SETUP
+###############################################################################
+units metal                                                                             # define unit system (metal = Angstrom, eV, ps, g/mol)
+boundary p p p                                                                          # set periodic boundary conditions
+atom_style atomic                                                                       # set atomic style for particles
+box tilt large
+read_data data.lmp                                                                # read start configuration
+pair_style nnp dir ${runnerDir} showew no showewsum 1 resetew yes maxew 200000 cflength 1.889726 cfenergy 0.036749
+pair_coeff * * ${runnerCutoff}
+###############################################################################
+# SIMULATION
+###############################################################################
+fix 1 all ipi xxxTxxx_1 32347 unix
+run             50000000 

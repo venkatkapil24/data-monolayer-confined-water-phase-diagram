@@ -1,0 +1,12 @@
+driver sg
+address localhost_1
+socket_mode unix
+flags -o 15
+driver sg
+address localhost_2
+socket_mode unix
+flags -o 15
+driver sg
+address localhost_3
+socket_mode unix
+flags -o 15
