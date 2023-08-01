@@ -1,10 +1,9 @@
-# Supplementary data for a paper on the phase diagram of monolayer nanoconfined water
+# Supplementary data for "The first-principles phase diagram of monolayer nanoconfined water"
 
-This repository contains supplementary data supporting the findings of the paper:
+This repository contains supplementary data supporting the findings of the paper: 
 
-"The first-principles phase diagram of monolayer nanoconfined water"
-
-Venkat Kapil, Christoph Schran, Andrea Zen, Ji Chen, Chris J. Pickard, Angelos Michaelides
+Kapil, Venkat, et al. “The First-Principles Phase Diagram of Monolayer Nanoconfined Water.” Nature, vol. 609, no. 7927, Sept. 2022, pp. 512–16. DOI.org (Crossref), 
+https://doi.org/10.1038/s41586-022-05036-x.
 
 ## License
 The content of this repository is licensed under the CC-BY-SA-4.0 license. See the file
