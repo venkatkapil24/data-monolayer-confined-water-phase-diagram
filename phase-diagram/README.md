@@ -2,7 +2,7 @@
 
 ## 0. The snapshot of the i-PI code used for the study. 
 
-This snapshot inplements constrained NPT allowing isotropic NPT in the xy plane. If you are interested in using this feature it is advisable to get in touch with (Venkat Kapil)[venkat.kapil@gmail.com]. We hope to have this implemented in the main branch of the (i-PI)[https://ipi-code.org/] code.
+This snapshot inplements constrained NPT allowing isotropic NPT in the xy plane. If you are interested in using this feature it is advisable to get in touch with [Venkat Kapil](venkat.kapil@gmail.com). We hope to have this implemented in the main branch of the [i-PI](https://ipi-code.org/) code.
 
 ## 1. The crystal structures of the monolayer ice phases investigated in this work.
 
@@ -20,4 +20,4 @@ We perform co-existence simulations in five steps. The first four steps create a
 
 ## 5. Random Structure Search Code
 
-Please contact (Venkat Kapil)[venkat.kapil@gmail.com] and (Chris Pickard)[cjp20@cam.ac.uk].  
+Please contact [Venkat Kapil](venkat.kapil@gmail.com) and [Chris Pickard](cjp20@cam.ac.uk).  
